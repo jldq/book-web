@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/bookDataContext" />
+  <nestedChildShapes>
+    <classShape Id="87c3e81d-7804-4052-9276-27831e860a56" isExpanded="false" absoluteBounds="6.125, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/bookDataContext/leixingbiao" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ad0300e-1ab2-4169-bb71-5884bf3fe823" absoluteBounds="6.14, 2.335, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="15e38f92-4e55-4177-af5d-99befbc7149f" isExpanded="false" absoluteBounds="4.125, 0.875, 2, 0.45">
+      <DataClassMoniker Name="/bookDataContext/log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="70aa9dbb-4f46-4a86-92c2-a1e83861b2ff" absoluteBounds="4.1400000000000006, 1.335, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5f40382b-6b91-42c2-839d-df58478d53c0" isExpanded="false" absoluteBounds="0.75, 3.75, 2, 0.45">
+      <DataClassMoniker Name="/bookDataContext/jiehuanbiao" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3a2095f2-8c13-4eaa-bab2-d721a502deea" absoluteBounds="0.76500000000000012, 4.21, 1.9700000000000002, 2.0860697428385415" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a06f79a-572c-4d69-83a9-49e61a0d48ca" isExpanded="false" absoluteBounds="3, 3, 2, 0.45">
+      <DataClassMoniker Name="/bookDataContext/tushubiao" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c09e8de4-980b-4dbc-bbf5-a63b7bb4c808" absoluteBounds="3.015, 3.46, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 3.45); (2.75 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/bookDataContext/tushubiao/tushubiao_jiehuanbiao" />
+      <nodes>
+        <classShapeMoniker Id="1a06f79a-572c-4d69-83a9-49e61a0d48ca" />
+        <classShapeMoniker Id="5f40382b-6b91-42c2-839d-df58478d53c0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.125 : 2.325); (7.125 : 3.225); (5 : 3.225)]" fixedFrom="Algorithm" fixedTo="NotFixed">
+      <AssociationMoniker Name="/bookDataContext/leixingbiao/leixingbiao_tushubiao" />
+      <nodes>
+        <classShapeMoniker Id="87c3e81d-7804-4052-9276-27831e860a56" />
+        <classShapeMoniker Id="1a06f79a-572c-4d69-83a9-49e61a0d48ca" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0de69e03-94fa-449e-b008-d06f0c235893" isExpanded="false" absoluteBounds="1.25, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/bookDataContext/cuihuanbiao" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b71e79b4-4a83-43df-a7e0-cbbc2ec0b835" absoluteBounds="1.2650000000000001, 2.335, 1.9700000000000002, 1.5316874186197915" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 3); (3.125 : 2.325)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bookDataContext/tushubiao/tushubiao_cuihuanbiao" />
+      <nodes>
+        <classShapeMoniker Id="1a06f79a-572c-4d69-83a9-49e61a0d48ca" />
+        <classShapeMoniker Id="0de69e03-94fa-449e-b008-d06f0c235893" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c5f4a642-3f94-4669-baf3-fecffed41844" isExpanded="false" absoluteBounds="5.75, 4, 2, 0.45">
+      <DataClassMoniker Name="/bookDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca50bebe-f68d-47a3-89f1-632ec6b3b6fc" absoluteBounds="5.7650000000000006, 4.46, 1.9700000000000002, 1.1620992024739583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 4.1); (2.75 : 4.1)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bookDataContext/Customer/Customer_jiehuanbiao" />
+      <nodes>
+        <classShapeMoniker Id="c5f4a642-3f94-4669-baf3-fecffed41844" />
+        <classShapeMoniker Id="5f40382b-6b91-42c2-839d-df58478d53c0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="edbfe31e-aac8-48c5-bc75-fecf7a8ea473" isExpanded="false" absoluteBounds="0.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/bookDataContext/kehubiao" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6ba85684-e7a6-4632-a543-586630e74598" absoluteBounds="0.64000000000000057, 0.96, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(0.96875 : 0.95); (0.96875 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bookDataContext/kehubiao/kehubiao_jiehuanbiao" />
+      <nodes>
+        <classShapeMoniker Id="edbfe31e-aac8-48c5-bc75-fecf7a8ea473" />
+        <classShapeMoniker Id="5f40382b-6b91-42c2-839d-df58478d53c0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.9375 : 0.95); (1.9375 : 1.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bookDataContext/kehubiao/kehubiao_cuihuanbiao" />
+      <nodes>
+        <classShapeMoniker Id="edbfe31e-aac8-48c5-bc75-fecf7a8ea473" />
+        <classShapeMoniker Id="0de69e03-94fa-449e-b008-d06f0c235893" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="efcce083-d4e7-4166-baf0-89d266debef8" isExpanded="false" absoluteBounds="4, 1.875, 2, 0.45">
+      <DataClassMoniker Name="/bookDataContext/Cmoney" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5a8d6b14-df23-4409-b806-0f54f91ad626" absoluteBounds="4.0150000000000006, 2.335, 1.9700000000000002, 1.7164815266927085" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

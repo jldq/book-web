@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="~/UserControl/UserStatus.ascx" TagPrefix="uc1" TagName="UserStatus" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+    </style>
+</head>
+<body >
+   <form id="form1" runat="server" style="background-color:#ffffff;">
+    <%--Ajax控件--%>
+       <asp:ScriptManager ID="ScriptManager1" EnablePartialRendering="true" runat="server"></asp:ScriptManager>
+
+    <!--Header-->
+    <header style="border-bottom:1px solid gray;height:110px">
+      <div style="float:right;width:100%; height:60px;">
+       <asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/logo.png" style="margin-left:20px;margin-top:-10px;float:left" Height="90px" Width="88px"/>
+       <div style="float:right;margin-top:0px;margin-right:20px">
+           <uc1:UserStatus runat="server" ID="UserStatus" />
+       </div>
+       <ul style="list-style: none;margin-top:50px;margin-left:30%;">
+          <li style="float:left;width:30%">
+            <asp:TextBox ID="txtSearch" runat="server" Height="27px" Width="346px"></asp:TextBox>
+          </li>
+          <li style="float:left;width:20%;margin-left:12%">
+            <asp:ImageButton ID="imgbtnSearch" runat="server" ImageUrl="~/Images/searchbutton.gif" CausesValidation="False" OnClick="imgbtnSearch_Click" Height="31px" Width="64px" />
+          </li>
+       </ul>
+      </div>
+    </header>
+
+    
+    <!--Body1-->
+    <section style="margin-top:10px;">
+      <div style="float:left;width:10%">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+      </div>
+
+      <div style="float:right;width:90%">
+          <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+          </asp:ContentPlaceHolder>
+      </div>
+    </section>
+
+
+  <!--Footer-->
+    <footer style="color:black;border:1px solid black;height:30px;line-height:30px;clear:both;margin-top:1050px;text-align:center">
+       Welcome to the book management website.
+    </footer>
+ 
+   </form>
+</body>
+</html>

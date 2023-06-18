@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="book" Class="bookDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=book;Integrated Security=True" SettingsObjectName="book.DAL.Properties.Settings" SettingsPropertyName="bookConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.leixingbiao" Member="leixingbiao">
+    <Type Name="leixingbiao">
+      <Column Name="l_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="l_leixing" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="l_qixian" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="l_miaoshu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="leixingbiao_tushubiao" Member="tushubiao" ThisKey="l_id" OtherKey="l_id" Type="tushubiao" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[log]" Member="log">
+    <Type Name="log">
+      <Column Name="log_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="action_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="action_table" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.jiehuanbiao" Member="jiehuanbiao">
+    <Type Name="jiehuanbiao">
+      <Column Name="j_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="t_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="k_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="j_jiechu" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="j_huan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="j_beizhu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="j_yingh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="j_zhuangtai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="c_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tushubiao_jiehuanbiao" Member="tushubiao" ThisKey="t_id" OtherKey="t_id" Type="tushubiao" IsForeignKey="true" />
+      <Association Name="Customer_jiehuanbiao" Member="Customer" ThisKey="c_id" OtherKey="customerId" Type="Customer" IsForeignKey="true" />
+      <Association Name="kehubiao_jiehuanbiao" Member="kehubiao" ThisKey="k_id" OtherKey="k_id" Type="kehubiao" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tushubiao" Member="tushubiao">
+    <Type Name="tushubiao">
+      <Column Name="t_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ISBN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="s_shuming" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="l_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_zuozhe" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="s_chubanshe" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="s_cbriqi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="s_danjia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="s_img" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="s_jianjie" Type="System.String" DbType="NVarChar(1550)" CanBeNull="true" />
+      <Column Name="s_cishu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="s_kucun" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="s_yijie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="s_tjimg" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="tushubiao_jiehuanbiao" Member="jiehuanbiao" ThisKey="t_id" OtherKey="t_id" Type="jiehuanbiao" />
+      <Association Name="tushubiao_cuihuanbiao" Member="cuihuanbiao" ThisKey="t_id" OtherKey="t_id" Type="cuihuanbiao" />
+      <Association Name="leixingbiao_tushubiao" Member="leixingbiao" ThisKey="l_id" OtherKey="l_id" Type="leixingbiao" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cuihuanbiao" Member="cuihuanbiao">
+    <Type Name="cuihuanbiao">
+      <Column Name="c_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="t_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="k_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="c_riqi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="c_neirong" Type="System.String" DbType="NVarChar(550)" CanBeNull="true" />
+      <Column Name="c_beizhu" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="c_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tushubiao_cuihuanbiao" Member="tushubiao" ThisKey="t_id" OtherKey="t_id" Type="tushubiao" IsForeignKey="true" />
+      <Association Name="kehubiao_cuihuanbiao" Member="kehubiao" ThisKey="k_id" OtherKey="k_id" Type="kehubiao" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customer">
+    <Type Name="Customer">
+      <Column Name="customerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Customer_jiehuanbiao" Member="jiehuanbiao" ThisKey="customerId" OtherKey="c_id" Type="jiehuanbiao" />
+    </Type>
+  </Table>
+  <Table Name="dbo.kehubiao" Member="kehubiao">
+    <Type Name="kehubiao">
+      <Column Name="k_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="k_xingming" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="k_Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="k_age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="kehubiao_jiehuanbiao" Member="jiehuanbiao" ThisKey="k_id" OtherKey="k_id" Type="jiehuanbiao" />
+      <Association Name="kehubiao_cuihuanbiao" Member="cuihuanbiao" ThisKey="k_id" OtherKey="k_id" Type="cuihuanbiao" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cmoney" Member="Cmoney">
+    <Type Name="Cmoney">
+      <Column Name="m_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="s_shuming" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="s_danjia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="moneys" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="m_zhuangtai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="m_leixing" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="m_time" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
